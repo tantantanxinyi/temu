@@ -1,5 +1,7 @@
+import { getCurrentSession } from "@/actions/auth";
 import Image from "next/image";
 
 export default function Home() {
-  return <div>HOME</div>;
+  const { uesr } = getCurrentSession();
+  return <div>Home</div>;
 }
