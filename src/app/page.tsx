@@ -7,7 +7,7 @@ const Home = async () => {
 
   const products = await getAllProducts();
 
-  return <div>343w5</div>;
+  return <div>{JSON.stringify(products)}</div>;
 };
 
 export default Home;
