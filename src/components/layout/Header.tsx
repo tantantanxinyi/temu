@@ -19,9 +19,10 @@ const AnnouncementBar = () => {
 
 type HeaderProps = {
   user: Omit<User, "passwordHash"> | null;
+  categorySelector: React.ReactNode;
 };
 
-const Header = ({ user }: HeaderProps) => {
+const Header = ({ user, categorySelector }: HeaderProps) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [prevScrollY, setPrevScrollY] = useState<number>(0);
@@ -79,6 +80,7 @@ const Header = ({ user }: HeaderProps) => {
                 <Link href="#">Shop</Link>
                 <Link href="#">New Arrivals</Link>
                 <Link href="#">Sale</Link>
+                {categorySelector }
               </nav>
             </div>
             <Link href="#" className="absolute left-1/2 -translate-x-1/2">

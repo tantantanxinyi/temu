@@ -53,7 +53,13 @@ const ProductItem = ({ product }: ProductItemProps) => {
               )}
             + sold in last 24h
           </div>
-          <button>GRAB IT NOW</button>
+          <button className="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white py-2 
+          rounded-full text-sm font-bold hover:brightness-110 transition-all">
+            GRAB IT NOW
+          </button>
+          <div className="text-xs text-red-500 text-center mt-1 animate-pluse ">
+              ⚡️ Limited time offer 
+          </div>
         </div>
       </div>
     </div>
