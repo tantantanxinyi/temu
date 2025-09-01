@@ -17,8 +17,22 @@ export const getAllProducts = async() => {
   const products = await sanityFetch({query:query})
   return products.data as Product[]
 }
+
+
 export const getAllCategories = async() => {
   const query = `*[_type == "productCategory"]`
   const products = await sanityFetch({query:query})
   return products.data as ProductCategory[]
+}
+
+export const getCategoryBySlug = async (slug: string) => {
+  const query = `*[_type == "productCategory" && slug.current == $slug][0]`
+  const category = await sanityFetch({ query: query, params: { slug } });
+  return category.data as ProductCategory;
+}
+
+export const getProductsByCategorySlug = async (slug: string) => {
+  const query = `*[_type == "product" && references(*[_type == "productCategory" && slug.current == $slug][0]._id)]`
+  const products = await sanityFetch({ query: query, params: { slug } });
+  return products.data as Product[];
 }
